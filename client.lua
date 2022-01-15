@@ -10,16 +10,6 @@ local function DisplayNotification(msg)
 end
 
 local function ShowRecordingTooltip(helpText)
-    local timeout = 0
-    while not IsRecording() do
-        timeout = timeout + 1
-        if timeout > 10 then
-            print("^3Warning: Recording never started, the tooltip was timed out.")
-            return
-        end
-        Citizen.Wait(100)
-    end
-
     local startTime = GetGameTimer()
     while IsRecording() do
         Citizen.Wait(0)
@@ -46,7 +36,10 @@ local function ToggleRecording()
     else
         isRecording = true
         StartRecording(1)
-        ShowRecordingTooltip("recording_clip_info")
+        Citizen.Wait(100)
+        if IsRecording() then
+            ShowRecordingTooltip("recording_clip_info")
+        end
     end
 end
 
@@ -62,8 +55,12 @@ local function ToggleActionReplay()
     else
         actionReplay = true
         StartRecording(0)
-        DisplayNotification(Config.Localization.Notifications.ActionReplayStart)
-        ShowRecordingTooltip("action_replay_info")
+
+        Citizen.Wait(100)
+        if IsRecording() then
+            DisplayNotification(Config.Localization.Notifications.ActionReplayStart)
+            ShowRecordingTooltip("action_replay_info")
+        end
     end
 end
 
