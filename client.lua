@@ -4,9 +4,9 @@ local actionReplay = false
 
 -- Functions --
 local function DisplayNotification(msg)
-	BeginTextCommandThefeedPost("STRING")
-	AddTextComponentSubstringPlayerName(msg)
-	EndTextCommandThefeedPostTicker(false, false)
+    BeginTextCommandThefeedPost("STRING")
+    AddTextComponentSubstringPlayerName(msg)
+    EndTextCommandThefeedPostTicker(false, false)
 end
 
 local function ShowRecordingTooltip(helpText)
@@ -92,24 +92,24 @@ end
 -- Record
 RegisterKeyMapping('record', Config.Localization.KeyMapping.Record, 'keyboard', Config.KeyMapping.Start)
 RegisterCommand('record', function()
-	ToggleRecording()
+    ToggleRecording()
 end, false)
 
 -- Action Replay
 RegisterKeyMapping('actionreplay', Config.Localization.KeyMapping.ActionReplay, 'keyboard', Config.KeyMapping.ActionReplay)
 RegisterCommand('actionreplay', function()
-	ToggleActionReplay()
+    ToggleActionReplay()
 end, false)
 
 -- Cancel
 RegisterKeyMapping('cancelrecording', Config.Localization.KeyMapping.Cancel, 'keyboard', Config.KeyMapping.Cancel)
 RegisterCommand('cancelrecording', function()
-	CancelRecording()
+    CancelRecording()
 end, false)
 
 -- Rockstar Editor
 RegisterCommand('rockstareditor', function()
-	OpenRockstarEditor()
+    OpenRockstarEditor()
 end, false)
 
 
