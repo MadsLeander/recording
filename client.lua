@@ -79,11 +79,6 @@ local function CancelRecording()
     isRecording = false
 end
 
-local function OpenRockstarEditor()
-    NetworkSessionLeaveSinglePlayer()
-    ActivateRockstarEditor()
-end
-
 
 -- Commands & Key Mapping --
 -- Record
@@ -106,7 +101,7 @@ end, false)
 
 -- Rockstar Editor
 RegisterCommand('rockstareditor', function()
-    OpenRockstarEditor()
+    ActivateRockstarEditor()
 end, false)
 
 
